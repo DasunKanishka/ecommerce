@@ -1,7 +1,7 @@
 import React from 'react';
 
 // client
-import {client, urlFor} from '../lib/client';
+import {client} from '../lib/client';
 
 // components
 import {Footer, FooterBanner, HeroBanner, Product} from '../components';
@@ -21,7 +21,11 @@ const Index = ({bannerData, productData}) => {
                 <p>Speakers of many variations</p>
             </div>
 
-            <div className="products-container">Loop products</div>
+            <div className="products-container">
+                {productData?.map(product => (
+                    <Product key={product._id} product={product} />
+                ))}
+            </div>
 
             <Footer />
         </>
