@@ -27,7 +27,7 @@ const Index = ({bannerData, productData}) => {
                 ))}
             </div>
 
-            <Footer />
+            <FooterBanner banner={bannerData && bannerData[0]} />
         </>
     );
 };
