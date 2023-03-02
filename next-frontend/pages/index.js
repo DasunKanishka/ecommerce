@@ -9,7 +9,11 @@ import {Footer, FooterBanner, HeroBanner, Product} from '../components';
 const Index = ({bannerData, productData}) => {
     return (
         <>
-            <HeroBanner banners={bannerData.length && bannerData} />
+            <div className="hero-banner-container">
+                {bannerData?.map(banner => (
+                    <HeroBanner key={banner._id} banner={banner} />
+                ))}
+            </div>
 
             <div className="products-heading">
                 <h2>Best Selling Products</h2>

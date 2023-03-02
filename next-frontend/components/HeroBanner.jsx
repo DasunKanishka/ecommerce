@@ -5,38 +5,37 @@ import {urlFor} from '../lib/client';
 
 // nextjs
 import Link from 'next/link';
+import Image from 'next/image';
 
-const HeroBanner = ({banners}) => {
+const HeroBanner = ({banner}) => {
     return (
-        <div className="hero-banner-container">
-            {banners.map(banner => {
-                return (
-                    <div key="{banner.id}">
-                        <p className="beats-solo">{banner.smallText}</p>
+        <>
+            <p className="beats-solo">{banner.smallText}</p>
 
-                        <h3>{banner.midText}</h3>
+            <h3>{banner.midText}</h3>
 
-                        <img
-                            src={urlFor(banner.image).url()}
-                            alt={banner.product}
-                            className="hero-banner-image"
-                        />
+            <picture>
+                <Image
+                    src={urlFor(banner.image).url()}
+                    alt={banner.product}
+                    width="450"
+                    height="300"
+                    className="hero-banner-image"
+                />
+            </picture>
 
-                        <div>
-                            <Link href={`/product/${banner._id}`}>
-                                <button>{banner.buttonText}</button>
-                            </Link>
+            <div>
+                <Link href={`/product/${banner._id}`}>
+                    <button>{banner.buttonText}</button>
+                </Link>
 
-                            <div className="desc">
-                                <h5>Description</h5>
+                <div className="desc">
+                    <h5>Description</h5>
 
-                                <p>{banner.desc}</p>
-                            </div>
-                        </div>
-                    </div>
-                );
-            })}
-        </div>
+                    <p>{banner.desc}</p>
+                </div>
+            </div>
+        </>
     );
 };
 
