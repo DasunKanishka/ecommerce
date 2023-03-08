@@ -2,9 +2,9 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import {urlFor} from '../lib/client';
+import { urlFor } from '../lib/client';
 
-const Product = ({product}) => {
+const Product = ({ product }) => {
     return (
         <>
             <Link href={`/product/${product.slug.current}`}>
@@ -21,7 +21,6 @@ const Product = ({product}) => {
                                     className="product-image"
                                 />
                             );
-                            console.log(img);
                         })}
                     </picture>
 

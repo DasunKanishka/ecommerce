@@ -1,12 +1,12 @@
 import React from 'react';
 
 // client
-import {client} from '../lib/client';
+import { client } from '../lib/client';
 
 // components
-import {Footer, FooterBanner, HeroBanner, Product} from '../components';
+import { Footer, FooterBanner, HeroBanner, Product } from '../components';
 
-const Index = ({bannerData, productData}) => {
+const Index = ({ bannerData, productData }) => {
     return (
         <>
             <div className="hero-banner-container">
@@ -32,7 +32,7 @@ const Index = ({bannerData, productData}) => {
     );
 };
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
     const bannerQuery = '*[_type == "banner"]';
     const bannerData = await client.fetch(bannerQuery);
 
@@ -40,7 +40,7 @@ export const getStaticProps = async () => {
     const productData = await client.fetch(productQuery);
 
     return {
-        props: {bannerData, productData},
+        props: { bannerData, productData },
     };
 };
 
